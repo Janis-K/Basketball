@@ -6,12 +6,33 @@ namespace Delegates
     {
         static void Main(string[] args)
         {
-            Matematika del = null;
+            //Matematika del = null;
+            Matematika sum = delegate (double first, double second)
+            {
+                return first + second;
+            };
+
+            Matematika sub = delegate (double first, double second)
+            {
+                return first - second;
+            };
+
+            Matematika mult = delegate (double first, double second)
+            {
+                return first * second;
+            };
+
+            Matematika div = delegate (double first, double second)
+            {
+                return first / second;
+            };
+
             PrintCmd();
             Console.WriteLine("Izvēle: ");
             int choice;
             int.TryParse(Console.ReadLine(), out choice);
             double one, two;
+            double res = 0;
             Console.WriteLine("Pirmais: ");
             double.TryParse(Console.ReadLine(), out one);
             Console.WriteLine("Otrais: ");
@@ -19,22 +40,22 @@ namespace Delegates
             switch (choice)
             {
                 case 1:
-                    del += new Matematika(Saskaitit);
+                    res = sum(one, two);
                     break;
                 case 2:
-                    del += new Matematika(Atnemt);
+                    res = sub(one, two);
                     break;
                 case 3:
-                    del += new Matematika(Reizinat);
+                    res = mult(one, two);
                     break;
                 case 4:
-                    del += new Matematika(Dalit);
+                    res = div(one, two);
                     break;
                 default:
                     break;
             }
-
-            Console.WriteLine(del(one, two));
+            
+            Console.WriteLine(res);
             Console.ReadLine();
         }
 
