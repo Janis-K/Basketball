@@ -12,6 +12,7 @@ namespace Plusmas
         static void Main(string[] args)
         {
             Thread thr = new Thread(Go);
+            thr.IsBackground = true;
             thr.Start();
             for (int i = 0; i < 200; i++)
             {
