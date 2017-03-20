@@ -14,10 +14,12 @@ namespace Plusmas
             Thread thr = new Thread(Go);
             thr.IsBackground = true;
             thr.Start();
+            thr.Join();
             for (int i = 0; i < 200; i++)
             {
-                Console.WriteLine("T1");
+                Console.WriteLine("T2");
             }
+            Console.ReadLine();
         }
 
         public static void Go()
