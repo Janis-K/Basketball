@@ -18,10 +18,6 @@ namespace SortComparison
         Bitmap bmpsave;
         PictureBox pnlSamples;
         public bool savePicture;
-        string outputFolder;
-        string outputFile;
-        int imgCount;
-
         int operationsPerFrame; 
         int frameMS; 
         int operationCount;
@@ -33,12 +29,11 @@ namespace SortComparison
 
         public SortAlgorithm(ArrayList list, PictureBox pic)
         {
-            imgCount = 0;
             arrayToSort = list;
             pnlSamples = pic;
 
-            operationCount = 0;
-            operationsPerFrame = 20;
+            operationCount = 80;
+            operationsPerFrame = 40;
             frameMS = 1000; 
 
             while (frameMS >= 40 && operationsPerFrame > 1)

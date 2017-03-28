@@ -34,10 +34,6 @@ namespace SortComparison
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
         public void Randomize(IList list)
         {
             for (int i = list.Count - 1; i > 0; i--)

@@ -158,7 +158,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sort Comparison";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlSort1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSort2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSort3)).EndInit();
