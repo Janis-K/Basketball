@@ -24,10 +24,6 @@ namespace SavannaGame
         /// </summary>
         private static List<Savanna> savannas;
 
-        private static Mutex mutex = new Mutex();
-
-        private static AutoResetEvent waitHandle = new AutoResetEvent(false);
-
         /// <summary>
         /// Application's entry point
         /// </summary>
@@ -39,12 +35,11 @@ namespace SavannaGame
         /// <summary>
         /// Method that starts the game
         /// </summary>
-        private static void StartGame()
+        private async static void StartGame()
         {
             var initialData = GetInitialData();
             initialData.SavannaCount = 3;
-            savannas = GenerateSavannas(initialData);
-            waitHandle.WaitOne();
+            savannas = await GenerateSavannas(initialData);
             Simulate();
         }
 
@@ -157,13 +152,11 @@ namespace SavannaGame
         /// <param name="savanna"></param>
         private static void ApplyGameLogic(Savanna savanna)
         {
-            mutex.WaitOne();
             Game game = new Game();
             savanna.SavannaAnimals = game.AnimalAction(savanna.SavannaAnimals, savanna.SavannaSizeY, savanna.SavannaSizeX);
             savanna.AntelopeCount = game.AnimalCount(savanna.SavannaAnimals, typeof(Antelope));
             savanna.LionCount = game.AnimalCount(savanna.SavannaAnimals, typeof(Lion));
             savanna.DayCount++;
-            mutex.ReleaseMutex();
         }
 
         /// <summary>
@@ -171,7 +164,7 @@ namespace SavannaGame
         /// </summary>
         /// <param name="initialData">InitialData object instance</param>
         /// <returns>List of Savanna objects</returns>
-        private static List<Savanna> GenerateSavannas(InitialData initialData)
+        private async static Task<List<Savanna>> GenerateSavannas(InitialData initialData)
         {
             Game game = new Game();
             List<Savanna> savannas = new List<Savanna>();
@@ -183,7 +176,6 @@ namespace SavannaGame
                 var savanna = new Savanna() { SavannaAnimals = animals, DayCount = 0, AntelopeCount = initialData.AntelopeCount, LionCount = initialData.LionCount, SavannaSizeX = initialData.Width, SavannaSizeY = initialData.Height };
                 savannas.Add(savanna);
             }
-            waitHandle.Set();
             return savannas;
         }
 
