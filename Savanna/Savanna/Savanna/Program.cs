@@ -24,6 +24,10 @@ namespace SavannaGame
         /// </summary>
         private static List<Savanna> savannas;
 
+        private static Mutex mutex = new Mutex();
+
+        private static AutoResetEvent waitHandle = new AutoResetEvent(false);
+
         /// <summary>
         /// Application's entry point
         /// </summary>
@@ -40,6 +44,7 @@ namespace SavannaGame
             var initialData = GetInitialData();
             initialData.SavannaCount = 3;
             savannas = GenerateSavannas(initialData);
+            waitHandle.WaitOne();
             Simulate();
         }
 
@@ -67,6 +72,7 @@ namespace SavannaGame
         /// </summary>    
         private static void Simulate()
         {
+
             var display = new GameDisplay();
             var status = new GameStatus();
             bool displayOverview = true;
@@ -89,11 +95,28 @@ namespace SavannaGame
                 display.Watch();
                 display.WatchOverview();
 
-                for (int i = 0; i < 3; i++)
+                ThreadStart ts1 = delegate
                 {
-                    Thread thr1 = new Thread(new ThreadStart(ApplyGameLogic(savannas[i])));
-                }
-                
+                    ApplyGameLogic(savannas[0]);
+                };
+                ThreadStart ts2 = delegate
+                {
+                    ApplyGameLogic(savannas[1]);
+                };
+                ThreadStart ts3 = delegate
+                {
+                    ApplyGameLogic(savannas[2]);
+                };
+                Thread t1 = new Thread(ts1);
+                t1.Start();
+                t1.Join();
+                Thread t2 = new Thread(ts2);
+                t2.Start();
+                t2.Join();
+                Thread t3 = new Thread(ts3);
+                t3.Start();
+                t3.Join();
+
                 var input = UserInput.SelectOption();
                 switch (input)
                 {
@@ -134,11 +157,13 @@ namespace SavannaGame
         /// <param name="savanna"></param>
         private static void ApplyGameLogic(Savanna savanna)
         {
+            mutex.WaitOne();
             Game game = new Game();
             savanna.SavannaAnimals = game.AnimalAction(savanna.SavannaAnimals, savanna.SavannaSizeY, savanna.SavannaSizeX);
             savanna.AntelopeCount = game.AnimalCount(savanna.SavannaAnimals, typeof(Antelope));
             savanna.LionCount = game.AnimalCount(savanna.SavannaAnimals, typeof(Lion));
             savanna.DayCount++;
+            mutex.ReleaseMutex();
         }
 
         /// <summary>
@@ -158,7 +183,7 @@ namespace SavannaGame
                 var savanna = new Savanna() { SavannaAnimals = animals, DayCount = 0, AntelopeCount = initialData.AntelopeCount, LionCount = initialData.LionCount, SavannaSizeX = initialData.Width, SavannaSizeY = initialData.Height };
                 savannas.Add(savanna);
             }
-
+            waitHandle.Set();
             return savannas;
         }
 

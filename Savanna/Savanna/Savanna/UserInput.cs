@@ -17,6 +17,7 @@ namespace SavannaGame
     /// </summary>
     public class UserInput
     {
+        static readonly object _object = new object();
         /// <summary>
         /// Method that asks for user input of a number and parses it
         /// </summary>
@@ -41,25 +42,28 @@ namespace SavannaGame
         /// <returns>A char representing the key that was pressed</returns>
         public static GameOption SelectOption()
         {
-            ConsoleKeyInfo cki;
-            if (Console.KeyAvailable)
+            lock (_object)
             {
-                cki = Console.ReadKey(true);
-                switch (cki.KeyChar)
+                ConsoleKeyInfo cki;
+                if (Console.KeyAvailable)
                 {
-                    case 's':
-                        return GameOption.SaveGame;
-                    case 'l':
-                        return GameOption.LoadGame;
-                    case 'w':
-                        return GameOption.ViewSingleSavanna;
-                    case 'o':
-                        return GameOption.ViewSavannaOverview;
-                    default:
-                        return GameOption.None;
+                    cki = Console.ReadKey(true);
+                    switch (cki.KeyChar)
+                    {
+                        case 's':
+                            return GameOption.SaveGame;
+                        case 'l':
+                            return GameOption.LoadGame;
+                        case 'w':
+                            return GameOption.ViewSingleSavanna;
+                        case 'o':
+                            return GameOption.ViewSavannaOverview;
+                        default:
+                            return GameOption.None;
+                    }
                 }
             }
-
+            
             return GameOption.None;
         }
     }
