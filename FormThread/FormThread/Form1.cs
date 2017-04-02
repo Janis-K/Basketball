@@ -22,9 +22,16 @@ namespace FormThread
         {
             while (button1.Bottom < this.ClientSize.Height)
             {
-                
-                Thread.Sleep(10);
-                Action act = delegate () { button1.Top++; };
+                Action act = delegate()
+                {
+                    for (int i = 0; i < 10000000; i++)
+                    {
+                        if (i == 9999999)
+                        {
+                            button1.Top++;
+                        }
+                    }
+                };
                 button1.Invoke(act);
 
 
@@ -35,8 +42,16 @@ namespace FormThread
         {
             while (button2.Bottom < this.ClientSize.Height)
             {
-                Thread.Sleep(10);
-                Action act = delegate () { button2.Top++; };
+                Action act = delegate ()
+                {
+                    for (int i = 0; i < 10000000; i++)
+                    {
+                        if (i == 9999999)
+                        {
+                            button2.Top++;
+                        }
+                    }
+                };
                 button2.Invoke(act);
             }
         }
@@ -45,8 +60,16 @@ namespace FormThread
         {
             while (button3.Bottom < this.ClientSize.Height)
             {
-                Thread.Sleep(10);
-                Action act = delegate () { button3.Top++; };
+                Action act = delegate ()
+                {
+                    for (int i = 0; i < 10000000; i++)
+                    {
+                        if (i == 9999999)
+                        {
+                            button3.Top++;
+                        }
+                    }
+                };
                 button3.Invoke(act);
             }
         }
@@ -55,12 +78,12 @@ namespace FormThread
         {
             var t1 = new Thread(Move1);
             t1.Priority = ThreadPriority.Highest;
-            t1.Start();
             var t2 = new Thread(Move2);
             t2.Priority = ThreadPriority.Lowest;
-            t2.Start();
             var t3 = new Thread(Move3);
             t3.Priority = ThreadPriority.Lowest;
+            t1.Start();
+            t2.Start();
             t3.Start();
         }
     }
