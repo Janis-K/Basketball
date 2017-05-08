@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Web", "Basketball\Basketball.Web.csproj", "{D1C0C808-271A-414D-A914-B630BBD0AD10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{79B9F913-AAE2-4680-B5F3-BF2502D69910}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{02867A87-2416-4F4C-80D8-51F811E0C48A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{DD45BA37-B8ED-4A99-B586-B1DD17503D14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Data", "Basketball.Data\Basketball.Data.csproj", "{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Models", "Basketball.Models\Basketball.Models.csproj", "{F95465B1-98F6-4927-A09E-7863FDCFD7E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Service", "Basketball.Service\Basketball.Service.csproj", "{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1C0C808-271A-414D-A914-B630BBD0AD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C0C808-271A-414D-A914-B630BBD0AD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C0C808-271A-414D-A914-B630BBD0AD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C0C808-271A-414D-A914-B630BBD0AD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F95465B1-98F6-4927-A09E-7863FDCFD7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95465B1-98F6-4927-A09E-7863FDCFD7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95465B1-98F6-4927-A09E-7863FDCFD7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95465B1-98F6-4927-A09E-7863FDCFD7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1C0C808-271A-414D-A914-B630BBD0AD10} = {79B9F913-AAE2-4680-B5F3-BF2502D69910}
+		{AE5E1D8D-86B8-4001-9FA6-70AFDE149A19} = {02867A87-2416-4F4C-80D8-51F811E0C48A}
+		{F95465B1-98F6-4927-A09E-7863FDCFD7E8} = {DD45BA37-B8ED-4A99-B586-B1DD17503D14}
+		{E0C5CC56-2E85-49E6-A634-DED18EC4F9F2} = {02867A87-2416-4F4C-80D8-51F811E0C48A}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://janiskacens.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Basketball.Data\\Basketball.Data.csproj
+		SccProjectTopLevelParentUniqueName1 = Basketball.sln
+		SccProjectName1 = Basketball.Data
+		SccLocalPath1 = Basketball.Data
+		SccProjectUniqueName2 = Basketball.Models\\Basketball.Models.csproj
+		SccProjectTopLevelParentUniqueName2 = Basketball.sln
+		SccProjectName2 = Basketball.Models
+		SccLocalPath2 = Basketball.Models
+		SccProjectUniqueName3 = Basketball.Service\\Basketball.Service.csproj
+		SccProjectTopLevelParentUniqueName3 = Basketball.sln
+		SccProjectName3 = Basketball.Service
+		SccLocalPath3 = Basketball.Service
+		SccProjectUniqueName4 = Basketball\\Basketball.Web.csproj
+		SccProjectTopLevelParentUniqueName4 = Basketball.sln
+		SccProjectName4 = Basketball
+		SccLocalPath4 = Basketball
+	EndGlobalSection
+EndGlobal
