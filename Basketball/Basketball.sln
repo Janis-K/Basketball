@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Service", "Baske
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Web", "Basketball.Web\Basketball.Web.csproj", "{BDC92037-9E8B-45B1-88F4-B7B6C551E518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basketball.Scrape", "Basketball.Scrape\Basketball.Scrape.csproj", "{B5E232CE-38F4-4353-8718-7B16C6CFF092}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,9 +75,5 @@ Global
 		SccProjectTopLevelParentUniqueName4 = Basketball.sln
 		SccProjectName4 = Basketball.Web
 		SccLocalPath4 = Basketball.Web
-		SccProjectUniqueName5 = Basketball.Scrape\\Basketball.Scrape.csproj
-		SccProjectTopLevelParentUniqueName5 = Basketball.sln
-		SccProjectName5 = Basketball.Scrape
-		SccLocalPath5 = Basketball.Scrape
 	EndGlobalSection
 EndGlobal
