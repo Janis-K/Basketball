@@ -10,9 +10,8 @@ namespace Basketball.Data.Configurations
             ToTable("Players");
             Property(g => g.FirstName).IsRequired().HasMaxLength(50);
             Property(g => g.LastName).IsRequired().HasMaxLength(50);
-            Property(g => g.NationalityId).IsRequired();
             Property(g => g.Heigth).IsRequired();
-            Property(g => g.PositionId).IsRequired();
+            HasRequired(x => x.Country).WithMany(s => s.Players);
         }
     }
 }

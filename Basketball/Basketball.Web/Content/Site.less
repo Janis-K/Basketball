@@ -1,0 +1,50 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.subnav {
+    margin: 0;
+    top: 0px;
+    z-index: 1020;
+    background-color: rgb(247,247,247);
+    border-bottom: 1px solid #000000;
+    padding: 8px 0px 0px 0px;
+}
+
+.subnav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.btn-success {
+    color: #000;
+    background-color: #808080;
+    border-color: #808088;
+
+    a {
+        color: #000;
+    }
+}

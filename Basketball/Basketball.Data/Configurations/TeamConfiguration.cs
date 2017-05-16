@@ -10,7 +10,7 @@ namespace Basketball.Data.Configurations
             ToTable("Teams");
             Property(g => g.TeamName).IsRequired();
             Property(g => g.City).IsRequired();
-            Property(g => g.CountryId).IsRequired();
+            HasRequired(g => g.TeamCountry).WithMany(s => s.Teams).HasForeignKey(x => x.CountryId);
         }
     }
 }

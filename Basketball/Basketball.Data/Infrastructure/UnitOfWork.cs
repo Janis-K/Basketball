@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Basketball.Data.Infrastructure
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly IDbFactory dbFactory;
         private BasketballContext dbContext;

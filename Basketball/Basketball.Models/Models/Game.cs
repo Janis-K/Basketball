@@ -1,4 +1,6 @@
-﻿namespace Basketball.Models.Models
+﻿using System;
+
+namespace Basketball.Models.Models
 {
     public class Game
     {
@@ -47,5 +49,11 @@
         public int HTeam_5O { get; set; }
 
         public int ATeam_5O { get; set; }
+
+        public DateTime DateTime { get; set; }
+
+        public int LeagueSeasonId { get; set; }
+
+        public LeagueSeason LeagueSeason { get; set; }
     }
 }

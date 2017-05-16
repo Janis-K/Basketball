@@ -42,7 +42,7 @@ namespace Basketball.Models.Models
 
         public int Foa { get; set; }
 
-        public DateTime Time { get; set; }
+        public TimeSpan Time { get; set; }
 
         public bool Starter { get; set; }
 

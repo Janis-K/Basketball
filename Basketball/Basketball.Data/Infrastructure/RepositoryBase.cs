@@ -10,7 +10,6 @@ namespace Basketball.Data.Infrastructure
 {
     public abstract class RepositoryBase<T> where T : class
     {
-        #region Properties
         private BasketballContext dataContext;
         private readonly IDbSet<T> dbSet;
 
@@ -24,7 +23,6 @@ namespace Basketball.Data.Infrastructure
         {
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
-        #endregion
 
         protected RepositoryBase(IDbFactory dbFactory)
         {
@@ -32,7 +30,6 @@ namespace Basketball.Data.Infrastructure
             dbSet = DbContext.Set<T>();
         }
 
-        #region Implementation
         public virtual void Add(T entity)
         {
             dbSet.Add(entity);
@@ -76,6 +73,5 @@ namespace Basketball.Data.Infrastructure
             return dbSet.Where(where).FirstOrDefault<T>();
         }
 
-        #endregion
     }
 }

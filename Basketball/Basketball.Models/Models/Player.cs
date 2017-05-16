@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Basketball.Models.Models
 {
@@ -19,15 +20,11 @@ namespace Basketball.Models.Models
 
         public int PositionId { get; set; }
 
-        public Position Position { get; set; }
+        public virtual Position Position { get; set; }
 
-        public int NationalityId { get; set; }
+        public int CountryId { get; set; }
 
-        public Country Nationality { get; set; }
-
-        public int NaturalizedId { get; set; }
-
-        public Country Naturalized { get; set; }
+        public virtual Country Country { get; set; }
 
         public virtual ICollection<Roster> Rosters { get; set; }
     }

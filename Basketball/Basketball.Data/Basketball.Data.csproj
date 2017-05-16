@@ -72,6 +72,8 @@
     <Compile Include="BasketballContext.cs" />
     <Compile Include="Configurations\CountryConfiguration.cs" />
     <Compile Include="Configurations\GameConfiguration.cs" />
+    <Compile Include="Configurations\LeagueConfiguration.cs" />
+    <Compile Include="Configurations\LeagueSeasonConfiguration.cs" />
     <Compile Include="Configurations\PerformanceConfiguration.cs" />
     <Compile Include="Configurations\PlayerConfiguration.cs" />
     <Compile Include="Configurations\PositionConfiguration.cs" />
@@ -88,6 +90,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
+    <Compile Include="Repositories\LeagueRepository.cs" />
+    <Compile Include="Repositories\LeagueSeasonRepository.cs" />
     <Compile Include="Repositories\PerformanceRepository.cs" />
     <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />

@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using Basketball.Models.Models;
 
 namespace Basketball.Data.Configurations
@@ -8,8 +9,8 @@ namespace Basketball.Data.Configurations
         public GameConfiguration()
         {
             ToTable("Games");
-            Property(g => g.HomeTeamId).IsRequired();
-            Property(g => g.AwayTeamId).IsRequired();
+            HasRequired(x => x.AwayTeam).WithMany(s => s.AwayGames).HasForeignKey(x => x.AwayTeamId);
+            HasRequired(x => x.HomeTeam).WithMany(s => s.HomeGames).HasForeignKey(x => x.HomeTeamId);
         }
     }
 }

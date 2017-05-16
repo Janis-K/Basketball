@@ -5,7 +5,7 @@ using Basketball.Models.Models;
 
 namespace Basketball.Data
 {
-    class SeedData : DropCreateDatabaseIfModelChanges<BasketballContext>
+    public class SeedData : DropCreateDatabaseIfModelChanges<BasketballContext>
     {
         protected override void Seed(BasketballContext context)
         {
@@ -17,6 +17,8 @@ namespace Basketball.Data
             GetPerformances().ForEach(g => context.Performances.Add(g));
             GetSeasons().ForEach(c => context.Seasons.Add(c));
             GetRosters().ForEach(c => context.Rosters.Add(c));
+            GetLeagues().ForEach(g => context.Leagues.Add(g));
+            GetLeagueSeasons().ForEach(g => context.LeagueSeasons.Add(g));
             context.Commit();
         }
 
@@ -25,10 +27,73 @@ namespace Basketball.Data
             return new List<Country>
             {
                 new Country {
+                    Id = 1,
                     CountryName = "Latvia"
                 },
                 new Country {
+                    Id = 2,
                     CountryName = "United States of America"
+                }
+            };
+        }
+
+        private static List<Season> GetSeasons()
+        {
+            return new List<Season>()
+            {
+                new Season()
+                {
+                    Id = 1,
+                    SeasonName = "2015/16"
+                },
+                new Season()
+                {
+                    Id = 2,
+                    SeasonName = "2016"
+                },
+                new Season()
+                {
+                    Id = 3,
+                    SeasonName = "2016/17"
+                }
+            };
+        }
+
+        private static List<League> GetLeagues()
+        {
+            return new List<League>()
+            {
+                new League()
+                {
+                    Id = 1,
+                    CountryId = 1,
+                    LeagueName = "Latvijas sieviešu basketbola līga"
+                },
+                new League()
+                {
+                    Id = 2,
+                    CountryId = 2,
+                    LeagueName = "Women's National Basketball Association"
+                }
+
+            };
+        }
+
+        private static List<LeagueSeason> GetLeagueSeasons()
+        {
+            return new List<LeagueSeason>()
+            {
+                new LeagueSeason
+                {
+                    Id = 1,
+                    LeagueId = 1,
+                    SeasonId = 3
+                },
+                new LeagueSeason()
+                {
+                    Id = 2,
+                    LeagueId = 1,
+                    SeasonId = 1
                 }
             };
         }
@@ -39,6 +104,7 @@ namespace Basketball.Data
             {
                 new Game()
                 {
+                    Id = 1,
                     HomeTeamId = 1,
                     AwayTeamId = 2,
                     HTeam_1Q = 13,
@@ -48,10 +114,13 @@ namespace Basketball.Data
                     HTeam_3Q = 16,
                     ATeam_3Q = 11,
                     HTeam_4Q = 19,
-                    ATeam_4Q = 15
+                    ATeam_4Q = 15,
+                    DateTime = DateTime.Now,
+                    LeagueSeasonId = 1
                 },
                 new Game()
                 {
+                    Id = 2,
                     HomeTeamId = 2,
                     AwayTeamId = 1,
                     HTeam_1Q = 9,
@@ -61,7 +130,9 @@ namespace Basketball.Data
                     HTeam_3Q = 25,
                     ATeam_3Q = 16,
                     HTeam_4Q = 19,
-                    ATeam_4Q = 22
+                    ATeam_4Q = 22,
+                    DateTime = DateTime.Now,
+                    LeagueSeasonId = 1
                 }
             };
         }
@@ -72,12 +143,14 @@ namespace Basketball.Data
             {
                 new Team
                 {
+                    Id = 1,
                     City = "Rīga",
                     CountryId = 1,
                     TeamName = "TTT Rīga"
                 },
                 new Team
                 {
+                    Id = 2,
                     City = "Liepāja",
                     CountryId = 1,
                     TeamName = "Vega 1/Liepāja"
@@ -91,18 +164,20 @@ namespace Basketball.Data
             {
                 new Player()
                 {
+                    Id = 1,
                     FirstName = "Ieva",
                     LastName = "Krastiņa",
                     Heigth = 172,
-                    NationalityId = 1,
+                    CountryId = 1,
                     PositionId = 1
                 },
                 new Player()
                 {
+                    Id = 2,
                     FirstName = "Kristīne",
                     LastName = "Silarāja",
                     Heigth = 172,
-                    NationalityId = 1,
+                    CountryId = 1,
                     PositionId = 3
                 }
             };
@@ -114,6 +189,7 @@ namespace Basketball.Data
             {
                 new Performance
                 {
+                    Id = 1,
                     PlayerId = 1,
                     GameId = 1,
                     As = 4,
@@ -125,7 +201,7 @@ namespace Basketball.Data
                     To = 1,
                     St = 1,
                     PlusMinus = -1,
-                    Time = new DateTime(0,0,0,0,36,38),
+                    Time = new TimeSpan(0,36,38),
                     TwoPtfga = 2,
                     TwoPtfgm = 1,
                     ThreePtfga = 9,
@@ -135,6 +211,7 @@ namespace Basketball.Data
                 },
                 new Performance
                 {
+                    Id = 2,
                     PlayerId = 2,
                     GameId = 1,
                     As = 5,
@@ -146,7 +223,7 @@ namespace Basketball.Data
                     To = 3,
                     St = 3,
                     PlusMinus = -9,
-                    Time = new DateTime(0,0,0,0,38,34),
+                    Time = new TimeSpan(0,38,34),
                     TwoPtfga = 11,
                     TwoPtfgm = 4,
                     ThreePtfga = 6,
@@ -163,45 +240,33 @@ namespace Basketball.Data
             {
                 new Position()
                 {
+                    Id = 1,
                     PositionName = "PG"
                 },
                 new Position()
                 {
+                    Id = 2,
                     PositionName = "SG"
                 },
                 new Position()
                 {
+                    Id = 3,
                     PositionName = "SF"
                 },
                 new Position()
                 {
+                    Id = 4,
                     PositionName = "PF"
                 },
                 new Position()
                 {
+                    Id = 5,
                     PositionName = "C"
                 }
             };
         }
 
-        private static List<Season> GetSeasons()
-        {
-            return new List<Season>()
-            {
-                new Season()
-                {
-                    SeasonName = "2015/16"
-                },
-                new Season()
-                {
-                    SeasonName = "2016"
-                },
-                new Season()
-                {
-                    SeasonName = "2016/17"
-                }
-            };
-        }
+        
 
         private static List<Roster> GetRosters()
         {
@@ -209,10 +274,13 @@ namespace Basketball.Data
             {
                 new Roster()
                 {
+                    Id = 1,
                     SeasonId = 3,
                     TeamId = 1,
                 }
             };
         }
+
+        
     }
 }
