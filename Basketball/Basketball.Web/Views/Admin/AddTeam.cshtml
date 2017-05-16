@@ -1,0 +1,35 @@
+﻿@model Basketball.Web.ViewModels.TeamCountryViewModel
+@{
+    ViewBag.Title = "AddTeam";
+}
+
+@Html.Partial("_AdminSubnav")
+<h2>Add New Team</h2>
+@using (Html.BeginForm("AddTeam", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Team Name</label><input type="text" name="TeamName" class="form-control" />
+        <label>City</label><input type="text" name="City" class="form-control" />
+        <label>Country</label>
+        @Html.DropDownList("CountryId", Model.Countries.Select(item => new SelectListItem()
+        {
+            Value = item.CountryId.ToString(),
+            Text = item.CountryName,
+        }), new { @class = "form-control" })
+    </div>
+    <input type="submit" value="Submit" class="btn-default" />
+}
+<br />
+<table class="table">
+    <thead>
+    <td>ID</td>
+    <td>Team Name</td>
+    <td>City</td>
+    <td>Country</td>
+    </thead>
+    @foreach (var row in Model.Teams)
+    {
+        <tr><td>@row.TeamId</td><td>@row.TeamName</td><td>@row.City</td><td>@row.CountryName</td></tr>
+    }
+
+</table>

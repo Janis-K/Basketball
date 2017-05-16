@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "AddGames";
+}
+
+@Html.Partial("_AdminSubnav")
+<h2>Add New Game</h2>
+@using (Html.BeginForm("AddGames", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Game stats URL</label><input type="text" name="url" class="form-control" />
+    </div>
+    <input type="submit" value="Submit" class="btn-default" />
+}

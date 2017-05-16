@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Basketball.Web.ViewModels.CountryViewModel>
+
+@{
+    
+}
+
+@Html.Partial("_AdminSubnav")
+<h2>Add New Country</h2>
+@using (Html.BeginForm("AddCountry", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Country Name</label><input type="text" name="CountryName" class="form-control" />
+    </div>
+    <input type="submit" value="Submit" class="btn-default"/>
+}
+<br/>
+<table class="table">
+    <thead>
+    <td>ID</td>
+    <td>Country</td>
+    </thead>
+    @foreach (var row in Model)
+    {
+        <tr><td>@row.CountryId</td><td>@row.CountryName</td></tr>
+    }
+
+</table>

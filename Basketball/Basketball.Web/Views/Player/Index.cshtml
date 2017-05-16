@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<form action="/Player/GetPlayerList" method="post">
+        <input type="text" name="url" />
+        <input type="submit" value="Submit" />
+    </form>*@
+
+@using (Html.BeginForm("GetPlayerInfo", "Player", FormMethod.Post))
+{
+    <input type="text" name="url" />
+    <input type="submit" value="Submit" />
+}
