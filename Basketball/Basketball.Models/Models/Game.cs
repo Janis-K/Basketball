@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Basketball.Models.Models
 {
     public class Game
     {
+        public Game()
+        {
+            Performances = new List<Performance>();
+        }
+
         public int Id { get; set; }
 
         public int HomeTeamId { get; set; }
@@ -55,5 +61,7 @@ namespace Basketball.Models.Models
         public int LeagueSeasonId { get; set; }
 
         public LeagueSeason LeagueSeason { get; set; }
+
+        public virtual ICollection<Performance> Performances { get; set; }
     }
 }

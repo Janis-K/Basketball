@@ -4,6 +4,7 @@ namespace Basketball.Models.Models
 {
     public class Performance
     {
+        
         public int Id { get; set; }
 
         public int PlayerId { get; set; }
